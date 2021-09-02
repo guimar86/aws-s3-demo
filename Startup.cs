@@ -27,7 +27,12 @@ namespace AwsDotnetS3
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers(options =>
+            {
+
+                options.RespectBrowserAcceptHeader = true;
+
+            }).AddXmlSerializerFormatters();
             services.AddTransient<IBucket, S3Service>();
 
             services.AddSwaggerGen(c =>
