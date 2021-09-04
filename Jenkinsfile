@@ -12,21 +12,7 @@ pipeline{
             steps{
                 echo "========executing A========"
                 echo "Being build by ${DEPLOY_USER} "
-            }
-
-            when{
-
-                expression{
-
-                    BRANCH_NAME="master"
-                }
-
-            }
-
-            steps{
-                echo "Sent from Master branch"
-            }
-            
+            }  
         }
         stage("publish"){
             steps{
