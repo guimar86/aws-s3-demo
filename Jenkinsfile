@@ -3,9 +3,9 @@ pipeline{
 
     environment{
 
-        "DOCKER_REG_USER"="guillenmartins@gmail.com"
-        "DOCKER_REG_PASS"="Password123"
-        "DEPLOY_USER"='Renato Martins'
+        DOCKER_REG_USER="guillenmartins@gmail.com"
+        DOCKER_REG_PASS="Password123"
+        DEPLOY_USER='Renato Martins'
     }
     stages{
         stage("build"){
