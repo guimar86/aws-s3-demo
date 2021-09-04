@@ -2,9 +2,28 @@ pipeline{
     agent any
     stages{
         stage("build"){
+
+            when{
+                expression{
+                    BRANCH_NAME="development"
+                }
+            }
             steps{
                 echo "========executing A========"
                 
+            }
+
+            when{
+
+                expression{
+
+                    BRANCH_NAME="master"
+                }
+
+            }
+
+            steps{
+                echo "Sent from Master branch"
             }
             
         }
@@ -16,14 +35,17 @@ pipeline{
         }
     }
     post{
-        always{
-            echo "========always========"
-        }
+        
         success{
             echo "========pipeline executed successfully ========"
         }
         failure{
             echo "========pipeline execution failed========"
+        }
+
+        always{
+            echo "========always========"
+            echo "Jenkinsfile end"
         }
     }
 }
