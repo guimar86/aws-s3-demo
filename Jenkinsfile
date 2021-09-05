@@ -31,12 +31,12 @@ pipeline{
             expression{
                 params.executeTests==true
             }
+        }
 
-            steps{
+         steps{
 
                 echo "Tests being done"
             }
-        }
 
         }
         stage("publish"){
