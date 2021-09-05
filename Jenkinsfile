@@ -18,12 +18,7 @@ pipeline{
     stages{
         stage("build"){
 
-            when{
-
-                expression{
-
-                }
-            }
+        
             steps{
                 echo "========executing A========"
             }  
@@ -37,7 +32,7 @@ pipeline{
                 params.executeTests==true
             }
         }
-        
+
         }
         stage("publish"){
             steps{
