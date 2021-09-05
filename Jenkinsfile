@@ -37,16 +37,7 @@ pipeline{
                 params.executeTests==true
             }
         }
-
-        post{
-
-            failure{
-                "tests were not executed. Choice of test execution was ${params.VERSION}"
-            }
-            success{
-
-            }
-        }
+        
         }
         stage("publish"){
             steps{
