@@ -3,15 +3,17 @@ pipeline{
 
     environment{
 
-        DOCKER_REG_USER="guillenmartins@gmail.com"
-        DOCKER_REG_PASS="Password123"
-        DEPLOY_USER='Renato Martins'
+        DOCKER_REGISTRY_CREDENTIALS=credentials('docker-registry-guillenmartins')
+        
+    }
+    tools{
+
+        maven 'Maven'
     }
     stages{
         stage("build"){
             steps{
                 echo "========executing A========"
-                echo "Being build by ${DEPLOY_USER} "
             }  
         }
         stage("publish"){
