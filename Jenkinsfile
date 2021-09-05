@@ -8,7 +8,7 @@ pipeline{
     }
     tools{
 
-        maven 'Docker'
+        maven 'Maven'
     }
     parameters{
 
