@@ -8,13 +8,45 @@ pipeline{
     }
     tools{
 
-        maven 'Maven'
+        maven 'Docker'
+    }
+    parameters{
+
+        boolean(name:"executeTests", defaultValue:true,description:"Execute tests in stage or not")
+        choice(name:"VERSION",defaultValue:['1.0','1.1'],description:"Version of app to run")
     }
     stages{
         stage("build"){
+
+            when{
+
+                expression{
+
+                }
+            }
             steps{
                 echo "========executing A========"
             }  
+        }
+
+        stage("tests"){
+
+        when {
+
+            expression{
+                params.executeTests==true
+            }
+        }
+
+        post{
+
+            failure{
+                "tests were not executed. Choice of test execution was ${params.VERSION}"
+            }
+            success{
+
+            }
+        }
         }
         stage("publish"){
             steps{
