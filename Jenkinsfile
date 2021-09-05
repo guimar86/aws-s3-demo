@@ -12,7 +12,7 @@ pipeline{
     }
     parameters{
 
-        boolean(name:"executeTests", defaultValue:true,description:"Execute tests in stage or not")
+        booleanParam(name:"executeTests", defaultValue:true,description:"Execute tests in stage or not")
         choice(name:"VERSION",defaultValue:['1.0','1.1'],description:"Version of app to run")
     }
     stages{
