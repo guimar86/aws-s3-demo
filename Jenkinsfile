@@ -43,10 +43,9 @@ pipeline{
         stage("publish"){
             steps{
                 echo "========executing A========"
-                withCredentials([string(credentials:'ftp-credentials',usernameVariable:'FTP_USERNAME',passwordVariable:'FTP_PASSWORD')]){
-
+               
                     sh 'git ftp init --user ${GIT_FTP_CREDENTIALS_USR} --passwd ${GIT_FTP_CREDENTIALS_PSW} ftp://${FTP.LOCATION}'
-                }
+                
             }
             
         }
