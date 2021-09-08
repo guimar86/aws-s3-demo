@@ -14,7 +14,7 @@ pipeline{
     
         booleanParam(name:"executeTests", defaultValue:true,description:"Execute tests in stage or not")
         choice(name:"VERSION",choices:['1.0','1.1'],description:"Version of app to run")
-        string(name:"FTP.LOCATION",defaultValue:"/Users/renatomartins/Documents/Development/AWS/S3/jenkins publish/",description:"Ftp location")
+        string(name:"FTP.LOCATION",defaultValue:"localhost/Users/renatomartins/Documents/Development/AWS/S3/jenkins publish/",description:"Ftp location")
     }
     stages{
         stage("build"){
