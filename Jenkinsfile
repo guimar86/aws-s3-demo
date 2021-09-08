@@ -44,7 +44,7 @@ pipeline{
             steps{
                 echo "========executing A========"
                
-                    sh 'git ftp init --user ${GIT_FTP_CREDENTIALS_USR} --passwd ${GIT_FTP_CREDENTIALS_PSW} ftp://${FTP.LOCATION}'
+                    sh "git ftp init --user ${GIT_FTP_CREDENTIALS} --passwd ${GIT_FTP_CREDENTIALS_PSW} ftp://${FTP.LOCATION}"
                 
             }
             
