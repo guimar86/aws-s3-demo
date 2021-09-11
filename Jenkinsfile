@@ -21,7 +21,7 @@ pipeline{
         
             steps{
                 echo "========executing Build of Solution========"
-                sh 'dotnet build'
+                sh 'dotnetBuild'
             }  
         }
 
@@ -44,7 +44,7 @@ pipeline{
             steps{
                 echo "========Publish solution========"
                
-            sh 'dotnet publish'
+            sh 'dotnetPublish'
                 
             }
             
