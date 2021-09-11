@@ -1,5 +1,7 @@
 pipeline{
-    agent {dockerfile true}
+    agent {
+        docker{image 'mcr.microsoft.com/dotnet/sdk:5.0'}
+    }
 
     environment{
 
@@ -18,7 +20,7 @@ pipeline{
 
         
             steps{
-                echo "========executing A========"
+                echo "========executing Build of Solution========"
                 sh 'dotnet build'
             }  
         }
@@ -40,7 +42,7 @@ pipeline{
         }
         stage("publish"){
             steps{
-                echo "========executing A========"
+                echo "========Publish solution========"
                
             sh 'dotnet publish'
                 
