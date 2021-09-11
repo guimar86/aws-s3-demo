@@ -1,15 +1,12 @@
 pipeline{
-    agent any
+    agent {dockerfile true}
 
     environment{
 
         DOCKER_REGISTRY_CREDENTIALS=credentials('docker-registry-guillenmartins')
         GIT_FTP_CREDENTIALS=credentials('ftp-credentials')
     }
-    tools{
-
-        maven 'Maven'
-    }
+    
     parameters{
     
         booleanParam(name:"executeTests", defaultValue:true,description:"Execute tests in stage or not")
@@ -22,6 +19,7 @@ pipeline{
         
             steps{
                 echo "========executing A========"
+                sh 'dotnet build'
             }  
         }
 
@@ -44,7 +42,7 @@ pipeline{
             steps{
                 echo "========executing A========"
                
-                    sh "git ftp init --user ${GIT_FTP_CREDENTIALS} --passwd ${GIT_FTP_CREDENTIALS_PSW} ftp://${FTP.LOCATION}"
+            sh 'dotnet publish'
                 
             }
             
