@@ -1,6 +1,6 @@
 pipeline{
     agent {
-        docker{image 'cr.microsoft.com/dotnet/aspnet:5.0-focal'}
+        docker{image 'mcr.microsoft.com/dotnet/aspnet:5.0-focal'}
     }
 
     environment{
