@@ -1,7 +1,5 @@
 pipeline{
-    agent {
-        docker{image 'mcr.microsoft.com/dotnet/sdk:5.0'}
-    }
+    agent none
 
     environment{
 
@@ -17,7 +15,9 @@ pipeline{
     }
     stages{
         stage("build"){
-
+ agent {
+        docker{image 'mcr.microsoft.com/dotnet/sdk:5.0'}
+    }
         
             steps{
                 echo "========executing Build of Solution========"
@@ -26,7 +26,9 @@ pipeline{
         }
 
         stage("tests"){
-
+ agent {
+        docker{image 'mcr.microsoft.com/dotnet/sdk:5.0'}
+    }
         when {
 
             expression{
@@ -41,6 +43,9 @@ pipeline{
 
         }
         stage("publish"){
+             agent {
+        docker{image 'mcr.microsoft.com/dotnet/sdk:5.0'}
+    }
             steps{
                 echo "========Publish solution========"
                
